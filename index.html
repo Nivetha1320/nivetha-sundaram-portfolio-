@@ -207,6 +207,14 @@
   @media (max-width:840px){ .about-grid{grid-template-columns:1fr; gap:40px;} }
   .about-grid h2{font-size:clamp(28px,3.6vw,42px); font-weight:400; line-height:1.18; margin-bottom:26px;}
   .about-grid .lede{font-size:17px; color:var(--text-dim); line-height:1.75; margin-bottom:20px; max-width:56ch;}
+  .lede-toggle{
+    background:none; border:none; padding:0; margin:-8px 0 24px; display:inline-block;
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--accent); cursor:pointer;
+  }
+  .lede-toggle:hover{opacity:.75;}
+  .lede-more{display:none;}
+  .lede-more.show{display:block;}
   .about-facts{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--hair);}
   .about-fact{display:flex; gap:18px; padding:20px 0; border-bottom:1px solid var(--hair);}
   .about-fact .af-k{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-faint); width:88px; flex:none; padding-top:2px;}
@@ -493,8 +501,11 @@
       </div>
       <div>
         <p class="lede">I started out in architecture, but during a semester abroad program, I had the chance to take up a course in marketing. During the course, I learnt Figma and created mocks for an app to help connect student volunteers with the senior disabled community. This exercise sparked my interest in marketing and design, which helped me pursue an internship beyond architecture.</p>
-        <p class="lede">At my previous job, YKG Limited, I started by taking on design tasks and eventually took on marketing initiatives for the company. Since it was a small company, I got the opportunity to wear multiple hats. I worked closely with the sales team and learned how content and design decisions can affect clicks, enquiries, and sales. In the process, I used tools like Lovable and Framer to turn my ideas into concepts, which then got implemented.</p>
-        <p class="lede">Outside of work, I took a course in Claude Code to gain hands-on experience with AI. I also created mockups using Claude Design for a B2C product app- to help women design saree blouses using AI- as a personal initiative.</p>
+        <button class="lede-toggle" type="button" aria-expanded="false">Read more +</button>
+        <div class="lede-more">
+          <p class="lede">At my previous job, YKG Limited, I started by taking on design tasks and eventually took on marketing initiatives for the company. Since it was a small company, I got the opportunity to wear multiple hats. I worked closely with the sales team and learned how content and design decisions can affect clicks, enquiries, and sales. In the process, I used tools like Lovable and Framer to turn my ideas into concepts, which then got implemented.</p>
+          <p class="lede">Outside of work, I took a course in Claude Code to gain hands-on experience with AI. I also created mockups using Claude Design for a B2C product app- to help women design saree blouses using AI- as a personal initiative.</p>
+        </div>
 
         <div class="about-meta-row">
           <div class="about-meta-block">
@@ -1187,6 +1198,16 @@
       navToggle.textContent = open ? '✕' : '☰';
     });
     navScrim.addEventListener('click', closeMenu);
+
+    var ledeToggle = document.querySelector('.lede-toggle');
+    var ledeMore = document.querySelector('.lede-more');
+    if(ledeToggle && ledeMore){
+      ledeToggle.addEventListener('click', function(){
+        var expanded = ledeMore.classList.toggle('show');
+        ledeToggle.textContent = expanded ? 'Read less −' : 'Read more +';
+        ledeToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    }
 
     var home = document.getElementById('home-view');
     var caseViews = document.getElementById('case-views');
