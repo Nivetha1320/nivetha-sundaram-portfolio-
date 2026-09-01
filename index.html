@@ -100,7 +100,30 @@
     color:var(--text); white-space:nowrap; transition:border-color .2s ease, background .2s ease;
   }
   .nav-cta:hover{border-color:var(--accent); background:var(--accent-soft);}
-  @media (max-width:720px){ .navlinks a:not(.nav-cta-wrap){display:none;} }
+
+  .nav-toggle{
+    display:none; background:none; border:1px solid var(--hair-strong); border-radius:2px;
+    width:40px; height:40px; align-items:center; justify-content:center;
+    color:var(--text); cursor:pointer; font-size:18px; line-height:1; padding:0;
+  }
+  @media (max-width:720px){
+    .nav-toggle{display:flex;}
+    .navlinks{
+      position:fixed; top:0; right:0; height:100vh; width:min(78vw,320px);
+      background:var(--bg-raised); border-left:1px solid var(--hair);
+      flex-direction:column; align-items:stretch; justify-content:flex-start; gap:0;
+      padding:96px 28px 28px; transform:translateX(100%); transition:transform .3s ease;
+      z-index:60;
+    }
+    #nav.nav-open .navlinks{transform:translateX(0);}
+    .navlinks a{padding:16px 0; font-size:17px; border-bottom:1px solid var(--hair);}
+    .navlinks a.nav-cta{border:1px solid var(--hair-strong); border-radius:2px; padding:12px 16px; margin-top:20px; text-align:center;}
+    .nav-scrim{
+      position:fixed; inset:0; background:rgba(0,0,0,.5); opacity:0; pointer-events:none;
+      transition:opacity .3s ease; z-index:55;
+    }
+    #nav.nav-open .nav-scrim{opacity:1; pointer-events:auto;}
+  }
 
   /* ---------------- HERO ---------------- */
   .hero{padding:96px 0 88px; border-bottom:1px solid var(--hair);}
@@ -435,8 +458,10 @@
 </style>
 
 <div id="nav">
+  <div class="nav-scrim"></div>
   <div class="wrap">
     <a class="brand" data-view="home">NIVETHA <span>SUNDARAM</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <div class="navlinks">
       <a data-view="home" data-scroll="about">About</a>
       <a data-view="home" data-scroll="work">Work</a>
@@ -467,7 +492,9 @@
         </div>
       </div>
       <div>
-        <p class="lede">I started out in architecture, but during a semester abroad program, I had the chance to take up a course in marketing. During the course, I learnt Figma and created mocks for an app to help connect student volunteers with the senior disabled community. This exercise sparked my interest in marketing and design, which helped me pursue an internship beyond architecture. At my previous job, YKG Limited, I started by taking on design tasks and eventually took on marketing initiatives for the company. Since it was a small company, I got the opportunity to wear multiple hats. I worked closely with the sales team and learned how content and design decisions can affect clicks, enquiries, and sales. In the process, I used tools like Lovable and Framer to turn my ideas into concepts, which then got implemented. Outside of work, I took a course in Claude Code to gain hands-on experience with AI. I also created mockups using Claude Design for a B2C product app- to help women design saree blouses using AI- as a personal initiative.</p>
+        <p class="lede">I started out in architecture, but during a semester abroad program, I had the chance to take up a course in marketing. During the course, I learnt Figma and created mocks for an app to help connect student volunteers with the senior disabled community. This exercise sparked my interest in marketing and design, which helped me pursue an internship beyond architecture.</p>
+        <p class="lede">At my previous job, YKG Limited, I started by taking on design tasks and eventually took on marketing initiatives for the company. Since it was a small company, I got the opportunity to wear multiple hats. I worked closely with the sales team and learned how content and design decisions can affect clicks, enquiries, and sales. In the process, I used tools like Lovable and Framer to turn my ideas into concepts, which then got implemented.</p>
+        <p class="lede">Outside of work, I took a course in Claude Code to gain hands-on experience with AI. I also created mockups using Claude Design for a B2C product app- to help women design saree blouses using AI- as a personal initiative.</p>
 
         <div class="about-meta-row">
           <div class="about-meta-block">
@@ -1147,6 +1174,20 @@
       nav.classList.toggle('compact', window.scrollY > 40);
     }, {passive:true});
 
+    var navToggle = document.querySelector('.nav-toggle');
+    var navScrim = document.querySelector('.nav-scrim');
+    function closeMenu(){
+      nav.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.textContent = '☰';
+    }
+    navToggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.textContent = open ? '✕' : '☰';
+    });
+    navScrim.addEventListener('click', closeMenu);
+
     var home = document.getElementById('home-view');
     var caseViews = document.getElementById('case-views');
     var cases = document.querySelectorAll('.case');
@@ -1180,6 +1221,7 @@
       var view = el.getAttribute('data-view');
       var scrollTarget = el.getAttribute('data-scroll');
       showView(view, scrollTarget);
+      closeMenu();
       history.replaceState(null, '', view === 'home' ? '#' : '#' + view);
     });
 
