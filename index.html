@@ -226,9 +226,12 @@
   .about-meta-row{display:flex; flex-wrap:wrap; gap:52px; margin-top:40px; padding-top:32px; border-top:1px solid var(--hair);}
   .about-meta-block{flex:1 1 220px;}
   .about-meta-block .kicker{display:block; margin-bottom:14px;}
-  .about-contact-list{display:flex; flex-direction:column; gap:8px;}
-  .about-contact-link{font-size:14.5px; color:var(--text-dim); transition:color .2s ease; cursor:pointer;}
-  .about-contact-link:hover{color:var(--accent);}
+  .about-exp-list{display:flex; flex-direction:column;}
+  .about-exp-item{padding:14px 0; border-top:1px solid var(--hair);}
+  .about-exp-item:first-child{padding-top:0; border-top:none;}
+  .about-exp-org{display:block; font-family:var(--mono); font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--text);}
+  .about-exp-date{display:block; margin-top:6px; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--text-faint);}
+  .about-exp-role{display:block; margin-top:6px; font-size:14.5px; line-height:1.45; color:var(--text-dim);}
 
   /* ---------------- SKILLS ---------------- */
   .skills-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:48px 40px;}
@@ -507,10 +510,23 @@
             </div>
           </div>
           <div class="about-meta-block">
-            <span class="kicker">Contact</span>
-            <div class="about-contact-list">
-              <a class="about-contact-link" href="mailto:nivetha1320@gmail.com">nivetha1320@gmail.com</a>
-              <a class="about-contact-link" href="tel:+919150577078">+91 9150577078</a>
+            <span class="kicker">Experience</span>
+            <div class="about-exp-list">
+              <div class="about-exp-item">
+                <span class="about-exp-org">Larsen &amp; Toubro</span>
+                <span class="about-exp-role">Architectural &amp; Design Intern</span>
+                <span class="about-exp-date">Jul 2024 – Dec 2024</span>
+              </div>
+              <div class="about-exp-item">
+                <span class="about-exp-org">YKG Ltd.</span>
+                <span class="about-exp-role">Design Intern</span>
+                <span class="about-exp-date">Mar 2025 – Jun 2025</span>
+              </div>
+              <div class="about-exp-item">
+                <span class="about-exp-org">YKG Ltd.</span>
+                <span class="about-exp-role">Design Lead<br>Customer Support &amp; Marketing</span>
+                <span class="about-exp-date">Jun 2025 – May 2026</span>
+              </div>
             </div>
           </div>
         </div>
