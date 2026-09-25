@@ -85,12 +85,6 @@
   .navlinks{display:flex; align-items:center; gap:34px;}
   .navlinks a{font-size:14px; color:var(--text-dim); transition:color .2s ease; cursor:pointer;}
   .navlinks a:hover{color:var(--text);}
-  .nav-cta{
-    font-family:var(--mono); font-size:12px; letter-spacing:.03em;
-    border:1px solid var(--hair-strong); padding:9px 16px; border-radius:2px;
-    color:var(--text); white-space:nowrap; transition:border-color .2s ease, background .2s ease;
-  }
-  .nav-cta:hover{border-color:var(--accent); background:var(--accent-soft);}
 
   .nav-toggle{
     display:none; background:none; border:1px solid var(--hair-strong); border-radius:2px;
@@ -108,7 +102,6 @@
     }
     #nav.nav-open .navlinks{transform:translateX(0);}
     .navlinks a{padding:16px 0; font-size:17px; border-bottom:1px solid var(--hair);}
-    .navlinks a.nav-cta{border:1px solid var(--hair-strong); border-radius:2px; padding:12px 16px; margin-top:20px; text-align:center;}
     .nav-scrim{
       position:fixed; inset:0; background:rgba(0,0,0,.5); opacity:0; pointer-events:none;
       transition:opacity .3s ease; z-index:55;
@@ -468,7 +461,6 @@
       <a data-view="home" data-scroll="about">About</a>
       <a data-view="home" data-scroll="work">Work</a>
       <a data-view="home" data-scroll="contact">Contact</a>
-      <a class="nav-cta" data-view="home" data-scroll="contact">Let's work together ↗</a>
     </div>
   </div>
 </div>
@@ -636,7 +628,7 @@
 
   <section class="contact-section wrap" id="contact">
     <span class="kicker">Contact</span>
-    <h2 style="margin-top:22px;">Have a problem worth <em>designing</em> around?</h2>
+    <h2 style="margin-top:22px;">Get in Touch</h2>
     <div class="contact-links">
       <a class="contact-link primary" href="mailto:nivetha1320@gmail.com">nivetha1320@gmail.com</a>
       <a class="contact-link" href="tel:+919150577078">+91 9150577078</a>
