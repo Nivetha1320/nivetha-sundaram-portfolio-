@@ -303,9 +303,9 @@
     border-top:1px solid var(--hair); border-left:1px solid var(--hair);
   }
   @media (max-width:720px){ .spec-rail{grid-template-columns:repeat(2,1fr);} }
-  /* Grandpal has three details, not four */
-  #case-grandpal .spec-rail{grid-template-columns:repeat(3,1fr);}
-  @media (max-width:720px){ #case-grandpal .spec-rail{grid-template-columns:1fr;} }
+  /* Projects with three details, not four */
+  #case-grandpal .spec-rail, #case-ea-ldb .spec-rail{grid-template-columns:repeat(3,1fr);}
+  @media (max-width:720px){ #case-grandpal .spec-rail, #case-ea-ldb .spec-rail{grid-template-columns:1fr;} }
   .spec-cell{padding:18px 22px; border-right:1px solid var(--hair); border-bottom:1px solid var(--hair);}
   .spec-cell .sk{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-faint); margin-bottom:8px; display:block;}
   .spec-cell .sv{font-size:14px; color:var(--text); line-height:1.4;}
@@ -809,7 +809,7 @@
     <header class="case-header wrap">
       <span class="kicker"><b>Project 05</b></span>
       <h1>Website Designs</h1>
-      <p class="dek">Two website design projects, for Extension Architecture and London Design and Build, taking a lot of heavy, technical information and turning it into pages that are easy to get through.</p>
+      <p class="dek">Two website design projects, both service pages, for Extension Architecture and London Design and Build, taking a lot of heavy, technical information and turning it into pages that are easy to get through.</p>
       <div class="spec-rail">
         <div class="spec-cell"><span class="sk">Clients</span><span class="sv">Extension Architecture, London Design &amp; Build</span></div>
         <div class="spec-cell"><span class="sk">Format</span><span class="sv">Full website design</span></div>
@@ -823,7 +823,7 @@
       <div class="case-row" style="padding-bottom:32px;">
         <div class="cr-label"><span class="kicker kicker-strong">Overview</span></div>
         <div class="cr-content">
-          <p>Each project below is its own website design, made for a different kind of client: one is a single service page, the other is a full site for a design-and-build studio. Open a project to see the whole page top to bottom, and the UI/UX thinking behind it.</p>
+          <p>Each project below is its own website design, both service pages: one for a single-storey extensions service, the other for a design &amp; build studio. Open a project to see the whole page top to bottom, and the UI/UX thinking behind it.</p>
         </div>
       </div>
 
@@ -833,7 +833,7 @@
           <span class="wc-arrow">→</span>
           <div class="wc-body">
             <h3>Service Page</h3>
-            <p class="wc-desc">Turning a dense, text-heavy single storey extension page into a scannable, visually paced journey.</p>
+            <p class="wc-desc">Taking a long, text-heavy extensions page and breaking it into something visual and easy to move through.</p>
             <div class="wc-meta"><span class="wc-tag">Extension Architecture</span></div>
           </div>
         </div>
@@ -843,7 +843,7 @@
           <span class="wc-arrow">→</span>
           <div class="wc-body">
             <h3>London Design and Build</h3>
-            <p class="wc-desc">An editorial, design-led studio site that reassures clients one team can handle the whole project.</p>
+            <p class="wc-desc">A service page for a design &amp; build studio, where I had a bit more room to experiment with the layout, using different grids to build the user's trust.</p>
             <div class="wc-meta"><span class="wc-tag">London Design &amp; Build</span></div>
           </div>
         </div>
@@ -920,14 +920,13 @@
   <article class="case" id="case-ea-ldb">
     <div class="case-top wrap"><a class="back-link" data-view="ea">← Website Designs</a></div>
     <header class="case-header wrap">
-      <span class="kicker"><b>Project 02</b> · London Design &amp; Build</span>
+      <span class="kicker">London Design &amp; Build</span>
       <h1>London Design and Build</h1>
-      <p class="dek">An editorial, design-led studio site built to reassure clients that one team can handle the whole project.</p>
+      <p class="dek">A service page for a design &amp; build studio, where I had a bit more room to experiment with the layout, using different grids to build the user's trust.</p>
       <div class="spec-rail">
         <div class="spec-cell"><span class="sk">Client</span><span class="sv">London Design &amp; Build</span></div>
         <div class="spec-cell"><span class="sk">Page</span><span class="sv">Full site</span></div>
         <div class="spec-cell"><span class="sk">Role</span><span class="sv">UI/UX design, content</span></div>
-        <div class="spec-cell"><span class="sk">Format</span><span class="sv">Studio website</span></div>
       </div>
     </header>
 
@@ -951,7 +950,7 @@
         <div class="cr-label"><span class="kicker">UI/UX write-up</span><h3>Answering trust before it's asked.</h3></div>
         <div class="cr-content">
           <p class="cr-subhead">The challenge</p>
-          <p>Design-and-build services are complex to explain: clients need to understand it's a single team handling everything from drawings to construction. The page had to communicate that reassurance without drowning the visitor in operational detail.</p>
+          <p>Design &amp; build services are complex to explain: clients need to understand it's a single team handling everything from drawings to construction. The page had to communicate that reassurance without drowning the visitor in operational detail.</p>
 
           <p class="cr-subhead">What I did</p>
           <ul class="cr-list">
