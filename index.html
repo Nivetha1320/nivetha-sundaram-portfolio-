@@ -292,6 +292,7 @@
     letter-spacing:.06em; color:var(--text-dim); cursor:pointer; text-transform:uppercase;
   }
   .back-link:hover{color:var(--accent);}
+  @media (max-width:720px){ .back-link{min-height:44px;} }
 
   .case-header{padding:44px 0 56px; border-bottom:1px solid var(--hair);}
   .case-header .kicker{margin-bottom:18px;}
@@ -334,7 +335,14 @@
   .work-card .wc-media.gp-media{background:var(--bg-raised); display:flex; align-items:center; justify-content:center; padding:44px;}
   .work-card .wc-media.email-media{background:var(--bg-raised); display:flex; align-items:center; justify-content:center;}
   .work-card .wc-media.email-media .email-emoji{font-size:150px; line-height:1;}
-  .work-card .wc-media.gp-media img{width:auto; max-width:46%; max-height:100%; height:auto; object-fit:contain; filter:none; transform:none;}
+  /* Logo cards: the logo is its own block above the text instead of a full-card backdrop. */
+  .work-card:has(.wc-media.gp-media), .work-card:has(.wc-media.email-media){background:var(--bg-raised);}
+  .work-card .wc-media.gp-media, .work-card .wc-media.email-media{
+    position:relative; inset:auto; flex:none; height:140px; padding:0; margin-bottom:26px; justify-content:flex-start;
+  }
+  .work-card .wc-media.gp-media::after, .work-card .wc-media.email-media::after{display:none;}
+  .work-card .wc-media.email-media .email-emoji{font-size:120px;}
+  .work-card .wc-media.gp-media img{width:auto; max-width:100%; height:100%; object-fit:contain; filter:none; transform:none;}
   .work-card:hover .wc-media.gp-media img{filter:none; transform:none;}
   .bab-badge{
     position:relative; width:140px; height:140px; border-radius:32px; background:#231A12;
@@ -367,6 +375,8 @@
   .case-row{display:grid; grid-template-columns:.62fr 1fr; gap:70px; padding-bottom:88px;}
   @media (max-width:840px){ .case-row{grid-template-columns:1fr; gap:26px; padding-bottom:56px;} }
   .case-row .cr-label{position:sticky; top:100px; align-self:start;}
+  /* Once heading and text stack, a pinned heading would sit on top of the text */
+  @media (max-width:840px){ .case-row .cr-label{position:static;} }
   .case-row .cr-label .kicker{margin-bottom:10px;}
   .case-row .cr-label h3{font-size:clamp(22px,2.4vw,30px); font-weight:400; line-height:1.2;}
   .case-row .cr-content p{font-size:15.5px; color:var(--text-dim); line-height:1.75; max-width:62ch;}
@@ -457,12 +467,10 @@
   }
   .reel-card .reel-poster-wrap:hover .reel-play-btn{background:var(--accent); border-color:var(--accent); transform:scale(1.06);}
   .reel-card .rc-text{padding:0 22px 22px; display:flex; flex-direction:column; gap:8px;}
-  .reel-card:hover{border-color:var(--accent); background:var(--accent-soft);}
   .reel-play{
     width:44px; height:44px; border-radius:50%; border:1px solid var(--hair-strong);
     display:flex; align-items:center; justify-content:center; font-size:14px;
   }
-  .reel-card:hover .reel-play{border-color:var(--accent); color:var(--accent);}
   .reel-card .rc-t{font-family:var(--serif); font-size:19px;}
   .reel-card .rc-d{font-size:13px; color:var(--text-dim); line-height:1.5;}
   .reel-card .rc-link{font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); margin-top:auto;}
@@ -815,7 +823,7 @@
 
       <div class="ea-hub-grid">
         <div class="work-card" data-view="ea-service">
-          <div class="wc-media pattern"><span class="wc-ghost">01</span></div>
+          <div class="wc-media pattern"></div>
           <span class="wc-arrow">→</span>
           <div class="wc-body">
             <h3>Service Page</h3>
@@ -825,7 +833,7 @@
         </div>
 
         <div class="work-card" data-view="ea-ldb">
-          <div class="wc-media pattern"><span class="wc-ghost">02</span></div>
+          <div class="wc-media pattern"></div>
           <span class="wc-arrow">→</span>
           <div class="wc-body">
             <h3>London Design and Build</h3>
